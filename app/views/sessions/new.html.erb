@@ -1,1 +1,19 @@
 <h2>Sign In</h2>
+
+<form action="<%= session_url %>" method="POST">
+  <%= auth_token %>
+  <label> username:
+    <input type="text" name="user[username]" value=<%= @user ? @user : @username %>>
+  </label>
+
+  <br>
+
+  <label> password:
+    <input type="password" name="user[password]">
+  </label>
+
+  <br>
+
+  <button>Sign In</button>
+
+</form>
