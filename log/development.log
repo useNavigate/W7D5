@@ -215,3 +215,73 @@ Processing by UsersController#index as HTML
 Completed 200 OK in 50ms (Views: 49.6ms | ActiveRecord: 0.3ms | Allocations: 1953)
 
 
+Started GET "/" for ::1 at 2023-02-24 11:56:25 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/seanabbas/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/railties-7.0.4.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/seanabbas/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/railties-7.0.4.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.7ms | Allocations: 527)
+Completed 200 OK in 4ms (Views: 2.3ms | ActiveRecord: 0.0ms | Allocations: 2816)
+
+
+Started GET "/users" for ::1 at 2023-02-24 11:56:28 -0500
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:3
+  Rendered users/index.html.erb within layouts/application (Duration: 5.0ms | Allocations: 965)
+  Rendered layout layouts/application.html.erb (Duration: 28.3ms | Allocations: 7926)
+Completed 200 OK in 34ms (Views: 28.7ms | ActiveRecord: 1.8ms | Allocations: 9816)
+
+
+Started GET "/users/new" for ::1 at 2023-02-24 11:56:31 -0500
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (Duration: 0.7ms | Allocations: 673)
+  Rendered layout layouts/application.html.erb (Duration: 1.7ms | Allocations: 1763)
+Completed 200 OK in 17ms (Views: 2.2ms | ActiveRecord: 4.0ms | Allocations: 6564)
+
+
+Started GET "/users" for ::1 at 2023-02-24 11:56:41 -0500
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:3
+  Rendered users/index.html.erb within layouts/application (Duration: 2.1ms | Allocations: 616)
+  Rendered layout layouts/application.html.erb (Duration: 5.1ms | Allocations: 1854)
+Completed 200 OK in 6ms (Views: 5.5ms | ActiveRecord: 0.4ms | Allocations: 2082)
+
+
+Started GET "/users" for ::1 at 2023-02-24 11:56:43 -0500
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:3
+  Rendered users/index.html.erb within layouts/application (Duration: 3.6ms | Allocations: 549)
+  Rendered layout layouts/application.html.erb (Duration: 8.0ms | Allocations: 1792)
+Completed 200 OK in 10ms (Views: 8.6ms | ActiveRecord: 0.7ms | Allocations: 2008)
+
+
+Started GET "/users" for ::1 at 2023-02-24 11:56:55 -0500
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:3
+  Rendered users/index.html.erb within layouts/application (Duration: 2.7ms | Allocations: 556)
+  Rendered layout layouts/application.html.erb (Duration: 6.6ms | Allocations: 1797)
+Completed 200 OK in 9ms (Views: 7.6ms | ActiveRecord: 0.5ms | Allocations: 2021)
+
+
+Started GET "/session/new" for ::1 at 2023-02-24 11:59:08 -0500
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 0.1ms | Allocations: 104)
+  Rendered layout layouts/application.html.erb (Duration: 1.4ms | Allocations: 1802)
+Completed 200 OK in 9ms (Views: 2.2ms | ActiveRecord: 4.7ms | Allocations: 5268)
+
+
