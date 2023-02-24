@@ -3,7 +3,7 @@
 <form action="<%= session_url %>" method="POST">
   <%= auth_token %>
   <label> username:
-    <input type="text" name="user[username]" value=<%= @user ? @user : @username %>>
+    <input type="text" name="user[username]" value=<%= @username ? @username : @user.username %>>
   </label>
 
   <br>
