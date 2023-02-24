@@ -10,6 +10,47 @@
   </head>
 
   <body>
+
+    <% if logged_in? %>
+      <p> <%= current_user.username %> is signed in </p>
+
+
+      <form action="<%= session_url %>" method="POST">
+        <input type="hidden" name="_method" value="DELETE">
+        <%= auth_token %>
+        <button>Sign Out</button>
+      </form>
+    <% end %>
+
+    <% if !logged_in? && action_name != 'new' %>
+<!-- new page == sign up || sign in -->
+
+      <form action="<%= new_session_url %>" method="GET">
+        <button>Sign In</button>
+      </form>
+      <form action="<%= new_user_url %>" method="GET">
+        <button>Sign Up</button>
+      </form>
+
+    <% elsif !logged_in? && action_name == 'new' %>
+  <!-- if we're on an action that's not new (new means a login or a sign up), put in links to new -->
+      <form action="<%= users_url %>" method="GET">
+        <button>Go back to home</button>
+      </form>
+
+
+    <% end %>
+
+
+    <% if flash[:errors] %>
+      <ul>
+        <% flash[:errors].each do |error| %>
+          <li> <%= error %></li>
+        <% end %>
+      </ul>
+    <% end %>
+
+
     <%= yield %>
   </body>
 </html>
