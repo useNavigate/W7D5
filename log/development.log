@@ -2239,3 +2239,125 @@ FOREIGN KEY ("moderator_id")
   [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
   [1m[36mActiveRecord::SchemaMigration Pluck (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
   [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/subs" for ::1 at 2023-02-24 14:52:56 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mCACHE ActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+
+ActiveRecord::PendingMigrationError - Migrations are pending. To resolve this issue, run:
+        bin/rails db:migrate RAILS_ENV=development
+You have 1 pending migration:
+20230224192816_create_subs.rb:
+
+Started POST "/__better_errors/851cc36e712cca8d/variables" for ::1 at 2023-02-24 14:52:56 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6711173107426626090)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateSubs (20230224192816)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (14.4ms)[0m  [1m[35mCREATE TABLE "subs" ("id" bigserial primary key, "title" character varying NOT NULL, "description" character varying, "moderator_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_290fd73d41"
+FOREIGN KEY ("moderator_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE INDEX "index_subs_on_moderator_id" ON "subs" ("moderator_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230224192816"]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(6711173107426626090)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/subs" for ::1 at 2023-02-24 14:53:26 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SubsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.5ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:3
+  Rendered subs/index.html.erb within layouts/application (Duration: 15.7ms | Allocations: 1183)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `current_user'
+  Rendered layout layouts/application.html.erb (Duration: 269.2ms | Allocations: 14085)
+Completed 200 OK in 404ms (Views: 343.6ms | ActiveRecord: 3.3ms | Allocations: 18281)
+
+
+Started GET "/subs/new" for ::1 at 2023-02-24 14:53:45 -0500
+Processing by SubsController#new as HTML
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms | Allocations: 688)
+
+
+
+ActionController::ParameterMissing - param is missing or the value is empty: sub:
+  app/controllers/subs_controller.rb:34:in `sub_params'
+  app/controllers/subs_controller.rb:7:in `new'
+
+Started POST "/__better_errors/5c59b6b6a7ad5b0f/variables" for ::1 at 2023-02-24 14:53:45 -0500
+Started POST "/__better_errors/5c59b6b6a7ad5b0f/eval" for ::1 at 2023-02-24 14:54:11 -0500
+Started GET "/subs/new" for ::1 at 2023-02-24 14:55:24 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SubsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering subs/new.html.erb within layouts/application
+  Rendered subs/new.html.erb within layouts/application (Duration: 16.8ms | Allocations: 983)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `current_user'
+  Rendered layout layouts/application.html.erb (Duration: 262.7ms | Allocations: 12135)
+Completed 200 OK in 409ms (Views: 340.1ms | ActiveRecord: 4.2ms | Allocations: 20348)
+
+
+Started POST "/subs" for ::1 at 2023-02-24 14:56:29 -0500
+Processing by SubsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "sub"=>{"title"=>"we did it", "description"=>"we did it mofos "}}
+No template found for SubsController#create, rendering head :no_content
+Completed 204 No Content in 6ms (ActiveRecord: 0.0ms | Allocations: 559)
+
+
+Started GET "/subs/new" for ::1 at 2023-02-24 14:58:23 -0500
+Processing by SubsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering subs/new.html.erb within layouts/application
+  Rendered subs/new.html.erb within layouts/application (Duration: 0.5ms | Allocations: 368)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `current_user'
+  Rendered layout layouts/application.html.erb (Duration: 65.4ms | Allocations: 5147)
+Completed 200 OK in 101ms (Views: 65.2ms | ActiveRecord: 3.4ms | Allocations: 8280)
+
+
+Started POST "/subs" for ::1 at 2023-02-24 14:58:27 -0500
+Processing by SubsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "sub"=>{"title"=>"asdasd", "description"=>"asdasdasdasdasd"}}
+  Rendering layout layouts/application.html.erb
+  Rendering subs/new.html.erb within layouts/application
+  Rendered subs/new.html.erb within layouts/application (Duration: 0.2ms | Allocations: 77)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `current_user'
+  Rendered layout layouts/application.html.erb (Duration: 44.5ms | Allocations: 1823)
+Completed 200 OK in 87ms (Views: 45.0ms | ActiveRecord: 0.3ms | Allocations: 7832)
+
+
+Started POST "/subs" for ::1 at 2023-02-24 14:59:09 -0500
+Processing by SubsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "sub"=>{"title"=>"asdasd", "description"=>"asdasdasdasdasd"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `current_user'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/subs_controller.rb:6:in `create'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:6:in `create'
+  [1m[36mSub Create (0.9ms)[0m  [1m[32mINSERT INTO "subs" ("title", "description", "moderator_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "asdasd"], ["description", "asdasdasdasdasd"], ["moderator_id", 2], ["created_at", "2023-02-24 19:59:09.652407"], ["updated_at", "2023-02-24 19:59:09.652407"]]
+  ↳ app/controllers/subs_controller.rb:6:in `create'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/subs_controller.rb:6:in `create'
+Redirected to http://localhost:3000/subs
+Completed 302 Found in 104ms (ActiveRecord: 5.4ms | Allocations: 13859)
+
+
+Started GET "/subs" for ::1 at 2023-02-24 14:59:09 -0500
+Processing by SubsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.2ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:3
+  Rendered subs/index.html.erb within layouts/application (Duration: 6.7ms | Allocations: 893)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `current_user'
+  Rendered layout layouts/application.html.erb (Duration: 62.9ms | Allocations: 2992)
+Completed 200 OK in 70ms (Views: 69.2ms | ActiveRecord: 0.8ms | Allocations: 3608)
+
+
